@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MouvementRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: MouvementRepository::class)]
 class Mouvement
@@ -14,18 +15,23 @@ class Mouvement
     private $id;
 
     #[ORM\Column(type: 'datetime')]
+    #[Groups("mouvement:lire")]
     private $date;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("mouvement:lire")]
     private $refsource;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("mouvement:lire")]
     private $refdest;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Groups("mouvement:lire")]
     private $libelle;
 
     #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
+    #[Groups("mouvement:lire")]
     private $montant;
 
     public function getId(): ?int

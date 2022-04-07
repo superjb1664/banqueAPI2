@@ -19,6 +19,6 @@ return $this->json($compteRepository->findAll(), 200,[],["groups" => "compte:lir
     public function checkMouvement(MouvementRepository $mouvementRepository, string $ref): Response
     {
         $mouvement = $mouvementRepository->findOneBy(array('libelle' => $ref));
-        return $this->json($mouvement, 200,[],["groups" => "compte:lire"]);
+        return $this->json($mouvement, 200,[],["groups" => "mouvement:lire"]);
     }
 }
